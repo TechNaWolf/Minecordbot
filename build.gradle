@@ -28,18 +28,18 @@ repositories {
     }
     maven {
         name = 'vault-repo'
-        url = 'http://nexus.hc.to/content/repositories/pub_releases'
+        url = 'https://nexus.hc.to/content/repositories/pub_releases'
     }
     maven {
         name = 'sk89q-repo'
-        url = 'http://maven.sk89q.com/repo'
+        url = 'https://maven.sk89q.com/repo'
     }
     maven {
         url = 'https://raw.githubusercontent.com/JRakNet/MavenRepository/master'
     }
     maven {
         name = 'AOL yoava'
-        url = 'http://yoava.artifactoryonline.com/yoava/repo'
+        url = 'https://yoava.artifactoryonline.com/yoava/repo'
     }
     flatDir {
         dirs 'libs'

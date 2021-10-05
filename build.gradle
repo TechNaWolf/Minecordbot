@@ -15,7 +15,6 @@ targetCompatibility = 16
 
 repositories {
     mavenCentral()
-    jcenter()
     mavenLocal()
     maven {
         url 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/'
@@ -48,34 +47,34 @@ repositories {
 }
 
 dependencies {
-    compile 'net.dv8tion:JDA:3.5.1_347'
-    compile 'com.jagrosh:JDA-Utilities:1.9'
-    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.6'
-    compile group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.25'
+    testImplementation 'net.dv8tion:JDA:4.2.0_247'
+    testImplementation 'com.jagrosh:JDA-Utilities:1.9'
+    runtimeOnly group: 'org.apache.commons', name: 'commons-lang3', version: '3.12'
+    runtimeOnly group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.30'
 
-    compile group: 'commons-codec', name: 'commons-codec', version: '1.9'
-    compile group: 'commons-io', name: 'commons-io', version: '2.5'
-    compile group: 'com.whirvis', name: 'jraknet', version: '2.9.6'
-    compile group: 'joda-time', name: 'joda-time', version: '2.9.9'
-    compile group: 'dnsjava', name: 'dnsjava', version: '2.1.1'
-    compile group: 'gui.ava', name: 'html2image', version: '0.9'
-    compile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1'
+    runtimeOnly group: 'commons-codec', name: 'commons-codec', version: '1.15'
+    runtimeOnly group: 'commons-io', name: 'commons-io', version: '2.10.0'
+    runtimeOnly group: 'com.whirvis', name: 'jraknet', version: '2.12.3'
+    runtimeOnly group: 'joda-time', name: 'joda-time', version: '2.10.10'
+    runtimeOnly group: 'dnsjava', name: 'dnsjava', version: '3.4.2'
+    runtimeOnly group: 'gui.ava', name: 'html2image', version: '0.9'
+    runtimeOnly group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
 
-    compileOnly 'net.milkbowl.vault:VaultAPI:1.6'
-    compileOnly 'org.bukkit:bukkit:1.12.2-R0.1-SNAPSHOT'
-    compileOnly 'com.github.TechFortress:GriefPrevention:16.7.1'
-    compileOnly name: 'mv'
-    compileOnly name: 'PermissionsEx-1.23.4'
-    compileOnly name: 'mcMMO'
-    compileOnly name: 'EssentialsX'
-    compileOnly name: 'SuperVanish'
-    compileOnly name: 'VentureChat'
+    runtimeOnly 'net.milkbowl.vault:VaultAPI:1.7'
+    runtimeOnly 'org.bukkit:bukkit:1.17.1-R0.1-SNAPSHOT'
+    runtimeOnly 'com.github.TechFortress:GriefPrevention:16.17.1'
+    runtimeOnly name: 'mv'
+    runtimeOnly name: 'PermissionsEx-1.23.4'
+    runtimeOnly name: 'mcMMO'
+    runtimeOnly name: 'EssentialsX'
+    runtimeOnly name: 'SuperVanish'
+    runtimeOnly name: 'VentureChat'
 }
 
 jar {
-    baseName = project.name
+    archiveBaseName = project.name
     manifest {
-        attributes 'Implementation-Version': version
+        attributes 'Implementation-Version': archiveVersion
         attributes 'Main-Class': mainClassName
     }
 }
@@ -83,14 +82,14 @@ jar {
 shadowJar {
     classifier = 'Shaded'
     dependencies {
-        exclude(dependency('org.spigotmc:spigot-api:1.12.1-R0.1-SNAPSHOT'))
+        exclude(dependency('org.spigotmc:spigot-api:1.17.1-R0.1-SNAPSHOT'))
         exclude(dependency('com.google.guava:guava:21.0'))
         exclude(dependency('com.google.code.gson:gson:2.8.0'))
         exclude(dependency('net.md-5:bungeecord-chat:1.12-SNAPSHOT'))
         exclude(dependency('org.hamcrest:hamcrest-core:1.1'))
         exclude(dependency('org.yaml:snakeyaml:1.18'))
         exclude(dependency('commons-lang:commons-lang:2.6'))
-        exclude(dependency('com.github.TechFortress:GriefPrevention:16.7.1'))
+        exclude(dependency('com.github.TechFortress:GriefPrevention:16.17.1'))
         exclude(dependency('rhino:js:1.7R2'))
         exclude(dependency('junit:junit:4.10'))
     }
